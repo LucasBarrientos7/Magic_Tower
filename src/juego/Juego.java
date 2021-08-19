@@ -17,6 +17,7 @@ public class Juego extends InterfaceJuego
 	
 	private Entorno entorno;
 	private Viga [] vigas;
+	private Image fondo;
 	private Pared paredIzquierda;
 	private Pared paredDerecha;
 	private Mago mago;
@@ -74,8 +75,9 @@ public class Juego extends InterfaceJuego
 		this.itemPos= new Items[8];
 		this.turnoHechizoDer=1;
 		this.turnoHechizoIzq=1;
+		this.fondo=Herramientas.cargarImagen("wall.png");
 		GameOver = Herramientas.cargarImagen("GameOver.png");
-		YouWin = Herramientas.cargarImagen("YouWin.jpg");
+		YouWin = Herramientas.cargarImagen("YouWin.png");
 		
 //		this.trampa = new TrampaDeFuego(0,-100,0,0,0);
 		
@@ -95,7 +97,7 @@ public class Juego extends InterfaceJuego
 		// Procesamiento de un instante de tiempo
 		// ...
 		// Dibujo al mago.
-		
+		this.entorno.dibujarImagen(fondo, 450, 300, 0);
 		dibujarVigas();
 		mago.dibujarse(entorno);
 		dibujarItems();
@@ -108,6 +110,8 @@ public class Juego extends InterfaceJuego
 		accionesMonstruos();	
 		dibujarPared();
 		
+		
+
 		entorno.cambiarFont("Aerial", 20, Color.white);
 		
 		entorno.escribirTexto("Puntos : "+ mago.getPuntos(), 60, 20);	//Dibujo los puntos
@@ -432,12 +436,12 @@ public class Juego extends InterfaceJuego
 		//SI el mago mata 4 monstruos se termina el juego
 		if(mago.ganaste(this.cantMonstruos))
 		{
-			entorno.dibujarImagen(YouWin, 400, 300, 0, 0.8);	
+			entorno.dibujarImagen(YouWin, 400, 300, 0, 0.9);	
 		}
 		//SI el mago pierde 3 vidas se termina el juego
 		if(mago.murio())
 		{
-			entorno.dibujarImagen(GameOver, 400, 300, 0,0.6);
+			entorno.dibujarImagen(GameOver, 400, 300, 0,0.9);
 		}
 	}
 	
@@ -885,6 +889,7 @@ public class Juego extends InterfaceJuego
 	
 	public void dibujarVigas()
 	{
+		//this.entorno.dibujarImagen(fondo, 450, 300, 0);
 		for (int i=0;i<vigas.length;i++)		//Dibujo las vigas.
 		{
 			if (vigas[i]==null)
@@ -918,9 +923,13 @@ public class Juego extends InterfaceJuego
 	
 	public void dibujarPared()
 	{
+		if(!mago.ganaste(this.cantMonstruos) && !mago.murio())
+		{
 		paredIzquierda.dibujarse(entorno);		// Dibujo las paredes.
 		
-		paredDerecha.dibujarse(entorno);
+		paredDerecha.dibujarse(entorno);	
+		}
+
 	}
 	
 	@SuppressWarnings("unused")

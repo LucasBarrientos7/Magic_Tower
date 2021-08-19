@@ -38,10 +38,10 @@ public class Monstruo
 		this.congelado=false;
 		this.rodando=false;
 		this.tipoMonstruo=1;
-		img1 = Herramientas.cargarImagen("zombieDer.gif");
-		img2 = Herramientas.cargarImagen("zombieIzq.gif");
-		img3 = Herramientas.cargarImagen("ghostIzq.gif");
-		img4 = Herramientas.cargarImagen("ghostDer.gif");
+		img1 = Herramientas.cargarImagen("ZombieD.gif");
+		img2 = Herramientas.cargarImagen("ZombieI.gif");
+		img3 = Herramientas.cargarImagen("ghostI.gif");
+		img4 = Herramientas.cargarImagen("ghostD.gif");
 		
 	}
 	
@@ -54,17 +54,17 @@ public class Monstruo
 	{
 		// Fantasmas:
 		if (this.direccion==1 && this.tipoMonstruo==2)
-			entorno.dibujarImagen(img4, this.x, this.y-4, this.angulo, 0.40);
+			entorno.dibujarImagen(img4, this.x, this.y+15, this.angulo, 0.20);
 
 		else if (this.direccion==-1 && this.tipoMonstruo==2)
-			entorno.dibujarImagen(img3, this.x, this.y-4, this.angulo, 0.40);
+			entorno.dibujarImagen(img3, this.x, this.y+15, this.angulo, 0.20);
 		
 		// Zombies:
 		else if(this.direccion==1)
-			entorno.dibujarImagen(img1, this.x, this.y-6, this.angulo, 0.25);
+			entorno.dibujarImagen(img1, this.x, this.y-5, this.angulo, 0.15);
 		
 		else if (this.direccion==-1)
-			entorno.dibujarImagen(img2, this.x, this.y-6, this.angulo, 0.25);
+			entorno.dibujarImagen(img2, this.x, this.y-5, this.angulo, 0.15);
 	}
 	 
 	public void moverse(Pared paredDer, Pared paredIzq)

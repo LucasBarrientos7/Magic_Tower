@@ -93,10 +93,6 @@ public class Juego extends InterfaceJuego
 	 */
 	public void tick()
 	{
-		
-		// Procesamiento de un instante de tiempo
-		// ...
-		// Dibujo al mago.
 		this.entorno.dibujarImagen(fondo, 450, 300, 0);
 		dibujarVigas();
 		mago.dibujarse(entorno);
@@ -110,21 +106,15 @@ public class Juego extends InterfaceJuego
 		accionesMonstruos();	
 		dibujarPared();
 		
-		
-
 		entorno.cambiarFont("Aerial", 20, Color.white);
-		
 		entorno.escribirTexto("Puntos : "+ mago.getPuntos(), 60, 20);	//Dibujo los puntos
-		
 		entorno.escribirTexto("vidas : "+ mago.getVidas(), 650, 20);	//Dibujo la cantidad de vida
-		
 		
 		tiempo++;
 		tiempoBarra++;
 		tiempoItems++;
 		tiempoTrampa++;
 		tiempoInmunidad++;
-	
 	}
 	
 	public void accionesMonstruos()
@@ -227,7 +217,7 @@ public class Juego extends InterfaceJuego
 					monstruo[i].setX(400);
 					monstruo[i].setY(20);
 				}		
-														// si el monstruo toca al mago y no esta congelado y no esta rodando y el mago no es inmune el mago pierde una vida y aparece en la parte superior de la pantalla
+				// si el monstruo toca al mago y no esta congelado y no esta rodando y el mago no es inmune el mago pierde una vida y aparece en la parte superior de la pantalla
 				if(monstruo[i].toca(mago.getX(), mago.getY(), mago.getAncho(), mago.getAlto()) && monstruo[i].isCongelado()==false && monstruo[i].isRodando()==false && mago.isInmunidad()==false)
 				{
 					mago.setX(400);
@@ -370,7 +360,8 @@ public class Juego extends InterfaceJuego
 				}
 		}
 
-		for (int i=0; i <monstruo.length; i++) // si el el monstruo esta congelado corre el tiempo  hasta llegar a 200 y el monstruo recupera su movimiento
+		// si el el monstruo esta congelado corre el tiempo  hasta llegar a 200 y el monstruo recupera su movimiento
+		for (int i=0; i <monstruo.length; i++) 
 		{
 			if (monstruo[i]!=null)
 			{
@@ -392,7 +383,7 @@ public class Juego extends InterfaceJuego
 						monstruo[i].setCongelado(false);
 					}
 				}
-										// Si el monstruo es tocado mientras esta congelado por el mago, comienza a rodar
+				// Si el monstruo es tocado mientras esta congelado por el mago, comienza a rodar
 				if(monstruo[i].toca(mago.getX(), mago.getY(), mago.getAncho(), mago.getAlto()) && monstruo[i].isCongelado())
 				{	
 					monstruo[i].setDireccion(mago.getDireccion());

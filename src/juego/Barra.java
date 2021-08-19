@@ -1,12 +1,8 @@
 package juego;
 
 import java.awt.Color;
-
 import java.awt.Paint;
-
-
 import entorno.Entorno;
-
 public class Barra 
 {
 	private double x;
@@ -68,5 +64,4 @@ public class Barra
 	public void setAngulo(double angulo) {
 		this.angulo = angulo;
 	}
-	
 }

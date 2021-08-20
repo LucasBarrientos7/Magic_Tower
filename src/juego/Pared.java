@@ -2,12 +2,12 @@ package juego;
 
 import java.awt.Color;
 import java.awt.Image;
-
 import entorno.Entorno;
 import entorno.Herramientas;
 
-public class Pared 
-{
+public class Pared {
+
+	// Variables de clase:
 	private double x;
 	private double y;
 	private double ancho;
@@ -15,8 +15,17 @@ public class Pared
 	private double angulo; 
 	Image img1;
 	
-	public Pared (double x, double y, double ancho, double alto, double angulo)
-	{
+	// Métodos de clase:
+
+	/**
+	 * Constructor de la clase pared.
+	 * @param x
+	 * @param y
+	 * @param ancho
+	 * @param alto
+	 * @param angulo
+	 */
+	public Pared (double x, double y, double ancho, double alto, double angulo) {
 		this.x=x;
 		this.y=y;
 		this.ancho=ancho;
@@ -25,16 +34,24 @@ public class Pared
 		img1 = Herramientas.cargarImagen("columna.png");
 	}
 	
-	public void dibujar (Entorno entorno)
-	{
+	/**
+	 * Método para dibujar en pantalla la paredes laterales sin imagen.
+	 * @param entorno
+	 */
+	public void dibujar (Entorno entorno) {
 		entorno.dibujarRectangulo(x, y, ancho, alto, angulo, Color.darkGray);
 	}
 	
-	public void dibujarse(Entorno entorno)
-	{
+	/**
+	 * Método para dibujar en pantalla la paredes laterales con imagen.
+	 * @param entorno
+	 */
+	public void dibujarse(Entorno entorno) {
 		for (double i=this.y-(this.alto/2)+35;i<= this.y+(this.alto/2); i+=53) 
 			entorno.dibujarImagen(img1, this.x+1, i-8, this.angulo, 0.48);
 	}
+
+	// Getters and Setters:
 
 	public double getX() {
 		return x;
@@ -76,4 +93,4 @@ public class Pared
 		this.angulo = angulo;
 	}
 	
-}
+} // Cierre total de la clase.

@@ -2,12 +2,12 @@ package juego;
 
 import java.awt.Color;
 import java.awt.Image;
-
 import entorno.Entorno;
 import entorno.Herramientas;
 
-public class Viga 
-{
+public class Viga {
+
+	// Variables de clase:
 	private double x;
 	private double y;
 	private double ancho;
@@ -15,10 +15,17 @@ public class Viga
 	private double angulo;
 	Image img1;
 	
-		
-		
-	public Viga (double x, double y, double ancho, double alto, double angulo)
-	{
+	// Métodos de clase:
+
+	/**
+	 * Constructor de la Clase Viga.
+	 * @param x
+	 * @param y
+	 * @param ancho
+	 * @param alto
+	 * @param angulo
+	 */
+	public Viga (double x, double y, double ancho, double alto, double angulo){
 		this.x=x;
 		this.y=y;
 		this.ancho=ancho;
@@ -26,17 +33,25 @@ public class Viga
 		this.angulo=angulo;
 		img1 = Herramientas.cargarImagen("viga.png");
 	}
-		
-	public void dibujar(Entorno entorno)
-	{
+	
+	/**
+	 * Método que dibuja en pantalla el objeto Viga sin imagen.
+	 * @param entorno
+	 */
+	public void dibujar(Entorno entorno){
 			entorno.dibujarRectangulo(x, y, ancho, alto, angulo, Color.yellow);
 	}
 	
-	public void dibujarse(Entorno entorno)
-	{
+	/**
+	 * Método que dibuja en pantalla el objeto Viga sin imagen.
+	 * @param entorno
+	 */
+	public void dibujarse(Entorno entorno){
 		for (double i=this.x-(this.ancho/2)+28;i<= this.x+(this.ancho/2); i+=42) 
 			entorno.dibujarImagen(img1, i, this.y+8, this.angulo, 0.19);
 	}
+
+	// Getters y Setters:
 
 	public double getX() {
 		return x;
@@ -78,4 +93,4 @@ public class Viga
 		this.angulo = angulo;
 	}
 		
-}
+} // Cierre total de la clase.

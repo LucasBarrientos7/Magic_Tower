@@ -1,6 +1,8 @@
 # Magic_Tower
 A survival game where you have to kill the monsters before they catch you.
 
+![Uploading image.png…]()
+
 Wizard Actions:
 - Movement     -> Left and Right keys.
 - Special Magic -> space bar-

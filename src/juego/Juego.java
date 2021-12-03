@@ -107,8 +107,8 @@ public class Juego extends InterfaceJuego
 		dibujarPared();
 		
 		entorno.cambiarFont("Aerial", 20, Color.white);
-		entorno.escribirTexto("Puntos : "+ mago.getPuntos(), 60, 20);	//Dibujo los puntos
-		entorno.escribirTexto("vidas : "+ mago.getVidas(), 650, 20);	//Dibujo la cantidad de vida
+		entorno.escribirTexto("SCORE : "+ mago.getPuntos(), 60, 20);	//Dibujo los puntos
+		entorno.escribirTexto("LIFE : "+ mago.getVidas(), 650, 20);	//Dibujo la cantidad de vida
 		
 		tiempo++;
 		tiempoBarra++;
